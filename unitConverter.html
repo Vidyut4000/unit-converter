@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{background-color: rgb(248, 200, 137);}
+        .form {
+            position: relative;
+            left: 25%;
+            top: 10px;
+            width: 30%;
+            border: 1px solid black;
+            padding: 5%;
+            text-align: center;
+            border-radius: 10px;
+            border-width: 2px;
+            background-color: rgb(201, 240, 240);
+            box-shadow: 5px 5px 5px rgb(24, 23, 23);
+            
+        }
+
+        form #input,
+        #output {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 4px;
+            box-shadow: 3px 2px 1px rgb(8, 7, 7);
+        }
+
+        form .button {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #060808;
+            color: white;
+
+            
+        }
+
+        .button:hover {
+            box-shadow: 4px 4px 4px rgb(69, 68, 68);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1 class="form">
+        Unit Converter
+    </h1>
+    <form action="@" class="form">
+        <input type="text" id="input"> Feet<br><br>
+        <input type="text" id="output"> cm<br><br>
+        <input type="button" value="click me for conversion" class="button" onclick="convert();">
+    </form>
+
+    <script>
+        // function for converting feet into cm
+        function convert() {
+            let feet = document.getElementById("input").value;
+            let cm = feet * 30.48;
+            document.getElementById("output").value = cm;
+
+            // conditions if user give  feet's value less than 0  
+            if (feet < 0) {
+                // message for less than 0
+                document.getElementById("output").value = "Please Enter Number > 0"
+            }
+            // code if user give input greater than 9 because in line no.71 we make a code which will execute even if 
+            // user give value of feet greater than 0 
+            else if (feet > 9) { document.getElementById("output").value = cm }
+
+            // message if user give any alphabetic character as feet value
+            else if (feet != 1 && feet != 2 && feet != 3 && feet != 4 && feet != 5 && feet != 6 && feet != 7 && feet != 8
+                && feet != 9 && feet != 0) { document.getElementById("output").value = "Pleae enter number" }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
